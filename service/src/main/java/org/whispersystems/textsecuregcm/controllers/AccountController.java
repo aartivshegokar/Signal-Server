@@ -178,7 +178,7 @@ public class AccountController {
       throw new AssertionError();
     }
 
-    return Response.ok(storedVerificationCode).build();
+    return Response.ok(pushChallenge).build();
   }
 
   @Timed
@@ -246,7 +246,7 @@ public class AccountController {
 
     metricRegistry.meter(name(AccountController.class, "create", Util.getCountryCode(number))).mark();
 
-    return Response.ok(verificationCode).build();
+    return Response.ok(verificationCode.getVerificationCode()).build();
   }
 
   @Timed
