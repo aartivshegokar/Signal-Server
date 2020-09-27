@@ -4,7 +4,7 @@ twilio:
   localDomain:  chat.ezify.com # need to set
   numbers: # Numbers allocated in Twilio
     - +66948962598 # First number
-  messagingServicesId: ACda68e3d8762c681def5b7ed9a9e74a21
+  messagingServicesId: MGc6fcdcb8f70e1d90fd1020c68ca54fc1 
 
 backupService:
   userAuthenticationTokenSharedSecret: 1b0f5ab51df3a9e87e2fcaa28e0b2cdc # Generate it with `head -c 16 /dev/urandom | hexdump -ve '1/1 "%.2x"'`
