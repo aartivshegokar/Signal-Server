@@ -1,6 +1,6 @@
 twilio:
-  accountId: SK02de4c548eeb9f1011e123220516696b
-  accountToken: lKhSGGl2df4uacfsecR1QwKsz34TMhOI
+  accountId: ACda68e3d8762c681def5b7ed9a9e74a21
+  accountToken: 76bd4b841f9805ebce2d28f5d16185b3
   localDomain:  chat.ezify.com # need to set
   numbers: # Numbers allocated in Twilio
     - +66948962598 # First number
