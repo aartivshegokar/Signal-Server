@@ -43,22 +43,20 @@ sudo /etc/init.d/postgresql restart
 
 Database Migration (Local)
 ------------------------------------------------------
-D:/SOFTWARES/JAVA/jdk-11/bin/java -jar target/TextSecureServer-2.92.jar accountdb migrate config/local.yml
-D:/SOFTWARES/JAVA/jdk-11/bin/java -jar target/TextSecureServer-2.92.jar messagedb migrate config/local.yml
-D:/SOFTWARES/JAVA/jdk-11/bin/java -jar target/TextSecureServer-2.92.jar abusedb migrate config/local.yml
-D:/SOFTWARES/JAVA/jdk-11/bin/java -jar target/TextSecureServer-2.92.jar keysdb migrate config/local.yml
+D:/SOFTWARES/JAVA/jdk-11/bin/java -jar target/TextSecureServer-3.21.jar accountdb migrate config/local.yml
+D:/SOFTWARES/JAVA/jdk-11/bin/java -jar target/TextSecureServer-3.21.jar messagedb migrate config/local.yml
+D:/SOFTWARES/JAVA/jdk-11/bin/java -jar target/TextSecureServer-3.21.jar abusedb migrate config/local.yml
 
 Database Migration (Prod)
 ------------------------------------------------------
-java -jar /home/ubuntu/kdchat/build/TextSecureServer-2.92.jar accountdb migrate /home/ubuntu/kdchat/build/config/prod.yml
-java -jar /home/ubuntu/kdchat/build/TextSecureServer-2.92.jar messagedb migrate /home/ubuntu/kdchat/build/config/prod.yml
-java -jar /home/ubuntu/kdchat/build/TextSecureServer-2.92.jar abusedb migrate /home/ubuntu/kdchat/build/config/prod.yml
-java -jar /home/ubuntu/kdchat/build/TextSecureServer-2.92.jar keysdb migrate /home/ubuntu/kdchat/build/config/prod.yml
+java -jar /home/ubuntu/chat/build/TextSecureServer-3.21.jar accountdb migrate /home/ubuntu/chat/build/config/prod.yml
+java -jar /home/ubuntu/chat/build/TextSecureServer-3.21.jar messagedb migrate /home/ubuntu/chat/build/config/prod.yml
+java -jar /home/ubuntu/chat/build/TextSecureServer-3.21.jar abusedb migrate /home/ubuntu/chat/build/config/prod.yml
 
 Run Jar Command (Local)
 ------------------------------------------------------
-D:/SOFTWARES/JAVA/jdk-11/bin/java -jar target/TextSecureServer-2.92.jar server config/local.yml
+D:/SOFTWARES/JAVA/jdk-11/bin/java -jar target/TextSecureServer-3.21.jar server config/local.yml
 
 Run Jar Command (Prod)
 ------------------------------------------------------
-java -jar /home/ubuntu/kdchat/build/TextSecureServer-2.92.jar server /home/ubuntu/kdchat/build/config/prod.yml
+java -jar /home/ubuntu/kdchat/build/TextSecureServer-3.21.jar server /home/ubuntu/chat/build/config/prod.yml
