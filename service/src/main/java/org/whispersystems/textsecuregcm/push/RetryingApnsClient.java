@@ -1,5 +1,22 @@
 package org.whispersystems.textsecuregcm.push;
 
+import static com.codahale.metrics.MetricRegistry.name;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.security.KeyPair;
+import java.security.PrivateKey;
+import java.security.cert.X509Certificate;
+import java.util.Date;
+import java.util.Map;
+import java.util.concurrent.ExecutionException;
+
+import org.bouncycastle.openssl.PEMReader;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.whispersystems.textsecuregcm.util.Constants;
+
 import com.codahale.metrics.Metric;
 import com.codahale.metrics.MetricRegistry;
 import com.codahale.metrics.SharedMetricRegistries;
@@ -12,23 +29,7 @@ import com.turo.pushy.apns.DeliveryPriority;
 import com.turo.pushy.apns.PushNotificationResponse;
 import com.turo.pushy.apns.metrics.dropwizard.DropwizardApnsClientMetricsListener;
 import com.turo.pushy.apns.util.SimpleApnsPushNotification;
-import org.bouncycastle.openssl.PEMReader;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.whispersystems.textsecuregcm.util.Constants;
 
-import java.io.ByteArrayInputStream;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.security.KeyPair;
-import java.security.PrivateKey;
-import java.security.cert.X509Certificate;
-import java.util.Date;
-import java.util.Map;
-import java.util.concurrent.ExecutionException;
-
-import static com.codahale.metrics.MetricRegistry.name;
 import io.netty.util.concurrent.GenericFutureListener;
 
 public class RetryingApnsClient {

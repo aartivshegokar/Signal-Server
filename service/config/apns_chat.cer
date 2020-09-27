@@ -1,8 +1,3 @@
-Bag Attributes
-    friendlyName: Apple Push Services: com.klouddata.messagegchat
-    localKeyID: 89 BD 8C 42 2B EF 4A 9E C4 DF 6D 33 31 BD 5A E6 EE C5 C3 6E 
-subject=/UID=com.klouddata.messagegchat/CN=Apple Push Services: com.klouddata.messagegchat/OU=T5U2HH4X49/O=KloudData, Inc./C=US
-issuer=/C=US/O=Apple Inc./OU=Apple Worldwide Developer Relations/CN=Apple Worldwide Developer Relations Certification Authority
 -----BEGIN CERTIFICATE-----
 MIIGRTCCBS2gAwIBAgIIIx+zKtpS8SkwDQYJKoZIhvcNAQELBQAwgZYxCzAJBgNV
 BAYTAlVTMRMwEQYDVQQKDApBcHBsZSBJbmMuMSwwKgYDVQQLDCNBcHBsZSBXb3Js

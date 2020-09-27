@@ -152,8 +152,8 @@ accountDatabaseCrawler: # crawler for account database
 apn: # You can use these value if you don't need Apple Push Notification
   sandbox: true
   bundleId: com.klouddata.messagegchat
-  pushCertificate: config/PUSH_KDCHAT2_PROD.crt
-  pushKey: config/PUSH_KDCHAT2_PROD.key
+  pushCertificate: config/apns_chat.cer
+  pushKey: config/apns_chat.key
 
 unidentifiedDelivery:
   certificate: CicIgd8xEiEFG5b/UcFkzslDnLqUyijLw0MkZJLq2+Sxsycfn12piSYSQDEtEgTqztgbUyBGondMFlitT94QMTAjjwJJH6Ygj5AH7ffYphTCbTjtloUW5InXRbDi47e4x9ZbvWHDRmdtcAg=
