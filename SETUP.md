@@ -1,11 +1,13 @@
 For ios Certificate p12 file to crt and key file
 --------------------------------------------------------
 openssl pkcs12 -in PUSH_KDCHAT2_PROD.p12 -nocerts -nodes | openssl rsa > PUSH_KDCHAT2_PROD.key
+
 openssl pkcs12 -in PUSH_KDCHAT2_PROD.p12 -nokeys -out PUSH_KDCHAT2_PROD.crt
 
 For jks file from cert and and key file
 --------------------------------------------------------
 cp /etc/letsencrypt/live/chat.ezifytech.com/fullchain.pem /home/ubuntu/chat/build/config/
+
 cp /etc/letsencrypt/live/chat.ezifytech.com/privkey.pem /home/ubuntu/chat/build/config/
  
 openssl pkcs12 -export -in fullchain.pem -inkey privkey.pem -name "chat.ezifytech.com" -out chatv2.p12.cert
