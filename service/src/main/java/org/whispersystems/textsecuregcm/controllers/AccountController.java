@@ -149,6 +149,7 @@ public class AccountController {
   @Timed
   @GET
   @Path("/{type}/preauth/{token}/{number}")
+  @Produces(value=MediaType.APPLICATION_JSON)
   public Response getPreAuth(@PathParam("type")   String pushType,
                              @PathParam("token")  String pushToken,
                              @PathParam("number") String number)
@@ -165,7 +166,8 @@ public class AccountController {
     StoredVerificationCode storedVerificationCode = new StoredVerificationCode(null,
                                                                                System.currentTimeMillis(),
                                                                                pushChallenge);
-
+    
+    logger.info("Push Challenge for number {} : {}", number, pushChallenge);
     pendingAccounts.store(number, storedVerificationCode);
 
     if ("fcm".equals(pushType)) {
@@ -176,12 +178,13 @@ public class AccountController {
       throw new AssertionError();
     }
 
-    return Response.ok().build();
+    return Response.ok(storedVerificationCode).build();
   }
 
   @Timed
   @GET
   @Path("/{transport}/code/{number}")
+  @Produces(value=MediaType.APPLICATION_JSON)
   public Response createAccount(@PathParam("transport")         String transport,
                                 @PathParam("number")            String number,
                                 @HeaderParam("X-Forwarded-For") String forwardedFor,
@@ -230,6 +233,7 @@ public class AccountController {
                                                                                System.currentTimeMillis(),
                                                                                storedChallenge.map(StoredVerificationCode::getPushCode).orElse(null));
 
+    logger.info("Verification Code for number {} : {}", number, verificationCode.getVerificationCode());
     pendingAccounts.store(number, storedVerificationCode);
 
     if (testDevices.containsKey(number)) {
@@ -242,7 +246,7 @@ public class AccountController {
 
     metricRegistry.meter(name(AccountController.class, "create", Util.getCountryCode(number))).mark();
 
-    return Response.ok().build();
+    return Response.ok(verificationCode).build();
   }
 
   @Timed
