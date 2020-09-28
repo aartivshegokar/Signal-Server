@@ -41,6 +41,7 @@ public class RedisClientFactory implements RedisPubSubConnectionFactory {
 
   private final String    host;
   private final int       port;
+  private final String    password;
   private final ReplicatedJedisPool jedisPool;
 
   public RedisClientFactory(String name, String url, List<String> replicaUrls, CircuitBreakerConfiguration circuitBreakerConfiguration)
@@ -54,15 +55,16 @@ public class RedisClientFactory implements RedisPubSubConnectionFactory {
 
     this.host      = redisURI.getHost();
     this.port      = redisURI.getPort();
+    this.password  = "1688*RoLon!"; 
 
-    JedisPool       masterPool   = new JedisPool(poolConfig, host, port, Protocol.DEFAULT_TIMEOUT, null);
+    JedisPool       masterPool   = new JedisPool(poolConfig, host, port, Protocol.DEFAULT_TIMEOUT, password);
     List<JedisPool> replicaPools = new LinkedList<>();
 
     for (String replicaUrl : replicaUrls) {
       URI replicaURI = new URI(replicaUrl);
 
       replicaPools.add(new JedisPool(poolConfig, replicaURI.getHost(), replicaURI.getPort(),
-                                     500, Protocol.DEFAULT_TIMEOUT, null,
+                                     500, Protocol.DEFAULT_TIMEOUT, password,
                                      Protocol.DEFAULT_DATABASE, null, false, null ,
                                      null, null));
     }

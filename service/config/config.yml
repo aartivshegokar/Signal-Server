@@ -24,15 +24,15 @@ turn: # Coturn server configuration
     - turn:127.0.0.1:3478?transport=udp # If you change the port in turnserver.conf, change this too
 
 cache: # redis server for cache cluster
-  url: redis://localhost:6379/cache # change to your redis server
+  url: redis://172.31.0.210:6379/cache # change to your redis server
   replicaUrls:
-    -  redis://localhost:6379/cacheReplica # change to your redis server
+    -  redis://172.31.0.210:6379/cacheReplica # change to your redis server
 
 directory:
   redis: # Redis server configuration for directory cluster
-    url: redis://localhost:6379/directory
+    url: redis://172.31.0.210:6379/directory
     replicaUrls:
-      -  redis://localhost:6379/directoryReplica
+      -  redis://172.31.0.210:6379/directoryReplica
   client: # Configuration for interfacing with Contact Discovery Service cluster
     userAuthenticationTokenSharedSecret: 1f51a95e788d9d20cd5cbf407d72ec80 # Generate it with `head -c 16 /dev/urandom | hexdump -ve '1/1 "%.2x"'`
     userAuthenticationTokenUserIdSecret: 1efa7b9ecd66d86ff451da64bac1eb7e # Generate it with `head -c 16 /dev/urandom | hexdump -ve '1/1 "%.2x"'`
@@ -80,9 +80,9 @@ directory:
       -----END CERTIFICATE-----
 messageCache: # redis server for message store cache
   redis:
-    url: redis://localhost:6379/messageCache # change to your redis server
+    url: redis://172.31.0.210:6379/messageCache # change to your redis server
     replicaUrls:
-      -  redis://localhost:6379/messageCacheReplica # change to your redis server
+      -  redis://172.31.0.210:6379/messageCacheReplica # change to your redis server
 
 awsAttachments:
   accessKey: AKIAW6YW4FFXZM5TVUES
@@ -107,9 +107,9 @@ gcpAttachments: # gcp storage configuration
   rsaSigningKey: "-----BEGIN PRIVATE KEY-----\n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\nnYPuhuYhpe3oa56QuiAr1CcJZ4w/ihE=\n-----END PRIVATE KEY-----\n"
 
 pubsub: # redis server for pubsub cache
-  url: redis://localhost:6379/cache # change to your redis server
+  url: redis://172.31.0.210:6379/cache # change to your redis server
   replicaUrls:
-    -  redis://localhost:6379/cacheReplica # change to your redis server
+    -  redis://172.31.0.210:6379/cacheReplica # change to your redis server
 
 remoteConfig: # remote configuration token
   authorizedTokens:
@@ -166,9 +166,9 @@ voiceVerification: # voice otp verification, afaik it use vox service
     - en
 
 pushScheduler: # redis server for push scheduler
-  url: redis://localhost:6379/pushScheduler # change to your redis server
+  url: redis://172.31.0.210:6379/pushScheduler # change to your redis server
   replicaUrls:
-    - redis://localhost:6379/pushSchedulerReplica # change to your redis server
+    - redis://172.31.0.210:6379/pushSchedulerReplica # change to your redis server
 
 server: # server configuration
   applicationConnectors:
