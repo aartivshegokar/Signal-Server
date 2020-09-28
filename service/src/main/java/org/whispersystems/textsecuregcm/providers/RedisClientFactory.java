@@ -41,9 +41,16 @@ public class RedisClientFactory implements RedisPubSubConnectionFactory {
 
   private final String    host;
   private final int       port;
-  private final String    password;
   private final ReplicatedJedisPool jedisPool;
-
+  
+  /*
+   * START: Custom changes
+   */
+  private final String    password = "1688*RoLon!";
+  /*
+   * END: Custom changes
+   */
+  
   public RedisClientFactory(String name, String url, List<String> replicaUrls, CircuitBreakerConfiguration circuitBreakerConfiguration)
       throws URISyntaxException
   {
@@ -55,7 +62,6 @@ public class RedisClientFactory implements RedisPubSubConnectionFactory {
 
     this.host      = redisURI.getHost();
     this.port      = redisURI.getPort();
-    this.password  = "1688*RoLon!"; 
 
     JedisPool       masterPool   = new JedisPool(poolConfig, host, port, Protocol.DEFAULT_TIMEOUT, password);
     List<JedisPool> replicaPools = new LinkedList<>();
@@ -81,7 +87,7 @@ public class RedisClientFactory implements RedisPubSubConnectionFactory {
     while (true) {
       try {
         Socket socket = new Socket(host, port);
-        return new PubSubConnection(socket);
+        return new PubSubConnection(socket, password);
       } catch (IOException e) {
         logger.warn("Error connecting", e);
         Util.sleep(200);
