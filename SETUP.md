@@ -10,9 +10,11 @@ Use KeyStore Tool
 ------------------
 Open iOS developer shared apns_cert.p12 file in KeyStore Tool.
 Enter Password if required(Asked)
-Right click on the opened(imported) certificate and click on Export Certificate (full chain)
+Right click on the opened(imported) certificate and click on Export Certificate Chain
 Export Cert and save with apns_chat_stage.cer
 Again Right click on the opened(imported) certificate and click on Export Private Key
+Select "Export Private Key Type" as "OpenSSL"
+In next screen uncheck the checkbox for "encrypt". Select the checkbox for "pem".
 Export Key and save with apns_chat_stage.key
 
 
