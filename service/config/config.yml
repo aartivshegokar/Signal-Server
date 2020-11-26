@@ -18,28 +18,28 @@ push:
 turn: # Coturn server configuration
   secret: secret # You will need the same config with the secret in turnserver.conf
   uris:
-    - stun:127.0.0.1:3478 # If you change the port in turnserver.conf, change this too
-    - stun:127.0.0.1:5349 # If you change the port in turnserver.conf, change this too
-    - turn:127.0.0.1:5349?transport=udp # If you change the port in turnserver.conf, change this too
-    - turn:127.0.0.1:3478?transport=udp # If you change the port in turnserver.conf, change this too
+    - stun:chat.ezifytech.com:3478 # If you change the port in turnserver.conf, change this too
+    - stun:chat.ezifytech.com:5349 # If you change the port in turnserver.conf, change this too
+    - turn:chat.ezifytech.com:5349?transport=udp # If you change the port in turnserver.conf, change this too
+    - turn:chat.ezifytech.com:3478?transport=udp # If you change the port in turnserver.conf, change this too
 
 cache: # redis server for cache cluster
-  url: redis://172.31.0.210:6379/cache # change to your redis server
+  url: redis://18.138.233.86:6379/cache # change to your redis server
   replicaUrls:
-    -  redis://172.31.0.210:6379/cacheReplica # change to your redis server
+    -  redis://18.138.233.86:6379/cacheReplica # change to your redis server
 
 directory:
   redis: # Redis server configuration for directory cluster
-    url: redis://172.31.0.210:6379/directory
+    url: redis://18.138.233.86:6379/directory
     replicaUrls:
-      -  redis://172.31.0.210:6379/directoryReplica
+      -  redis://18.138.233.86:6379/directoryReplica
   client: # Configuration for interfacing with Contact Discovery Service cluster
     userAuthenticationTokenSharedSecret: 1f51a95e788d9d20cd5cbf407d72ec80 # Generate it with `head -c 16 /dev/urandom | hexdump -ve '1/1 "%.2x"'`
     userAuthenticationTokenUserIdSecret: 1efa7b9ecd66d86ff451da64bac1eb7e # Generate it with `head -c 16 /dev/urandom | hexdump -ve '1/1 "%.2x"'`
   sqs:
-    accessKey:    AKIAW6YW4FFXZM5TVUES
-    accessSecret: 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
-    queueUrl:     https://sqs.ap-southeast-1.amazonaws.com/478399965551/signalchat.fifo
+    accessKey:    AKIAW6YW4FFXQJ65IBUQ
+    accessSecret: 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
+    queueUrl:     https://sqs.ap-southeast-1.amazonaws.com/478399965551/ezify.fifo
   server: # You can change the certificate with your own certificate
     replicationUrl: http://127.0.0.1:9090 # CDS replication endpoint base url
     replicationPassword: mypassword # CDS replication endpoint password
@@ -80,19 +80,19 @@ directory:
       -----END CERTIFICATE-----
 messageCache: # redis server for message store cache
   redis:
-    url: redis://172.31.0.210:6379/messageCache # change to your redis server
+    url: redis://18.138.233.86:6379/messageCache # change to your redis server
     replicaUrls:
-      -  redis://172.31.0.210:6379/messageCacheReplica # change to your redis server
+      -  redis://18.138.233.86:6379/messageCacheReplica # change to your redis server
 
 awsAttachments:
-  accessKey: AKIAW6YW4FFXZM5TVUES
-  accessSecret: 3FjA4TdcS6yrTDy49Z9hmI7yfTiaU+gcWltyX9lR
+  accessKey: AKIAW6YW4FFXQJ65IBUQ
+  accessSecret: K0COCp6jt4w4AKJoVosKXCrATaF95nJ3h8NPeIOl
   bucket: signalchat
   region: ap-southeast-1
 
 cdn:
-  accessKey: AKIAW6YW4FFXZM5TVUES
-  accessSecret: 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
+  accessKey: AKIAW6YW4FFXQJ65IBUQ
+  accessSecret: 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
   bucket: signalchat
   region: ap-southeast-1
 
@@ -107,17 +107,17 @@ gcpAttachments: # gcp storage configuration
   rsaSigningKey: "-----BEGIN PRIVATE KEY-----\n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\nnYPuhuYhpe3oa56QuiAr1CcJZ4w/ihE=\n-----END PRIVATE KEY-----\n"
 
 pubsub: # redis server for pubsub cache
-  url: redis://172.31.0.210:6379/cache # change to your redis server
+  url: redis://18.138.233.86:6379/cache # change to your redis server
   replicaUrls:
-    -  redis://172.31.0.210:6379/cacheReplica # change to your redis server
+    -  redis://18.138.233.86:6379/cacheReplica # change to your redis server
 
 remoteConfig: # remote configuration token
   authorizedTokens:
     - dummy
 
 zkConfig: # zkgroup config, run using your build jar
-  serverSecret: V8/WAr+8Q20ljC8TSN1zMC9RRq4Z7Tbttnkqf680FAXcNZ83fYGrDCRH8z68QbG2L3i4T2QjVeu+CpU/BRIUCVompKDUsU9qCzAETjHTCohXhYIq4gmSFW5McT6ZXE4MKfxE1YHBWjcN+g07l4jFXjZxmj1cId5gw73D+Yqx8wsRciA2cJd4EFhfzDB7ETd76+/i+UllFhiQ5wztwO5wBEjjHmFvo7MGqtCBjjrCNEXt1155LJWB+HfAg0jk/JEFZgzJsV6w0Q7IBCFHzFzDNTe0WGQuyn46sAUJwzPgowH8Q4VVtuF+6w0J0EH7K/D6eSDHNB0NnW0pDr0QP2oaAtSJ4I0ByQjVbHoQRW5ySwAwby8lt4DQYaxWam0dcI8ExpdxWxJruK2IxTYVHz0Y/P+F8OtzokDImRuDUp6NSQHb7Qca1vAiRx3JuEUBcfeCGPPHcTM3TjJOSE7AcdfFBfA4r8rZsd5913vpTOTjqrxwH2Cbwr9unEHnu7PjCHZVSlMRhoQ6KcXfk4Ye1xkvjlK5Wffh6ywz4LcKQAhusyJxVB8LLXuHVH+H+ZBPNqzZAFVDWaX4jhTZqbTJu0JbAGaLEM+hBP7Z7yqkPwNdkfPuT3DQZSmaZ0nyChw+gf8B8g/mbLOHCgDts3QD373Ko8U/hxybn89+XmnJ33jBTk5++fWdg/xWqPCsikG3EpX0M5AZl1HGL3I4ZAcI7MCBCtRvL0rKEO0hSWcimkGPk0Ga/qAateI03pCcYErcmoIOVzXWnWlPmx3qdCa/4tTc2WOYq8WUVtIHZStBnwIuWAnS4lrmXq/uf6J3QWf/inJU5Ibds0XgY/raNFqR3V6UAsgujw0GoX1hdZ0I+dFolm50O+U6q5q5b2wa7Cc/PLMC0R3WFTy1EanocCSCfUnwbY0hsGOqB0AAWYHFIYK7hgvTAK+js2V4wMosE/ia1zRnUwGbsbBELVvoCqv/xuHMBZ7EDX1L4C2eSyB/XYDT/Oj1E+FGmHlU6GMk++Ii8pwMmnOZNBrY8IpsZDtz3p6Ug6wzx6jIM5hw3dYYl1m51HIcxkT5roCjyQiyUOvxnu/hnlzkoHETTgNyty8qkrn8XbFJbSveX1jsiWrgCUFAMD77QQz2f2WIgsx+ybwj+RMGtoPcsHyvcjGAGKoBaGw87qTzExLYVqdFlsmRLHPIbzU
-  serverPublic: 8Divytmx3n3Xe+lM5OOqvHAfYJvCv26cQee7s+MIdlVKUxGGhDopxd+Thh7XGS+OUrlZ9+HrLDPgtwpACG6zIppzmTQa2PCKbGQ7c96elIOsM8eoyDOYcN3WGJdZudRyHMZE+a6Ao8kIslDr8Z7v4Z5c5KBxE04DcrcvKpK5/F22g9ywfK9yMYAYqgFobDzupPMTEthWp0WWyZEsc8hvNQ
+  serverSecret: ABNVzv9oTkU0ogBN1HlmR1HYFcgGNlAk6jli6pzkqlMDuMcrsMRVezatGz7G0WXhHlJUxqtSrKX3zPSFmWJCDgxEhFe8m4Vk3bIEw0aw3mx12Oi8Vy2KjGH0rcF43619WQ7kJ+P+EUeb9OEYM65x+ZKwTYZpwiwZ/SLdW7KG/+4CVZa7qJrk8j+6IM16GTmgJBbYsAhCYfEmy9pGauGvsg9eGa+jJMzUYJoV0aFYUId67wL4moID3b4D2g1Dt6vgByr7yB1TySmlsj8CZM2flXINmfj/mfvtPVhUCk46W2MNtD4+2+IpNjNqnYKvYqiX9vI6Kb5CgWQeOrar1wXMLggawI8xtcUk/v8bh5zFaE24pbCUzvRiXyHKk1K9DUz/AoYxVMnyru/LfZBuhSOFX9kEibpH/q6N8kByLXdPFGtgrI1oNrIzFiAOynke+yYAxiq93TjZZHwybs7bxON6QSWOdClM+5CN/OFxrFLlVzNuogeZf/M+STIYOX9KdIXqCMpsJFYQEheEqHBGBruduHO7if7oWvigTcYXjiJcv7kPvCDtIQtVX4VkzD4upRGBrRUtRA8Fa1VCxjc9gfl0OEDMCc7FB/JS1vFYLTf8uM+gjBqNlaQAucAy/CW8IdVCBAUU9LWAxf+dYHECQxJ6G3oNGwT/AdFm0ixmJ9fntgcDu8qgP8YOJE/V0Zbv5ai0IGBK1EWoz4Vv02/sgixACwg6Zl9jU32tMpTteu4a1qem3bORweHF5wycnmPTMxnjBZNnsCt2+AoxjXARJUCiaylmpZ5GB761cCVGeULkItAHGdBWMP7khIQn+xuLt1t7HTvkA//QPMDNK6MMG37LXwFKStyBYODVnUe4kLUSm0EUf+EY6KcBTYDtG1N+BvSvU5S5thssSPS5R0Qt4LtFQOSuIAwu2F/jdfXhWtx+u7hjP1rjUBQBowq8KE50Vc+QnRmTQvbVyDSnKP+IvK7nvwfyPK3lwASkrldFS3ua0dSBIqDOSskepX48Af5O1lcBQQ==
+  serverPublic: AIYxVMnyru/LfZBuhSOFX9kEibpH/q6N8kByLXdPFGtgrI1oNrIzFiAOynke+yYAxiq93TjZZHwybs7bxON6QSVKStyBYODVnUe4kLUSm0EUf+EY6KcBTYDtG1N+BvSvU5S5thssSPS5R0Qt4LtFQOSuIAwu2F/jdfXhWtx+u7hj8jyt5cAEpK5XRUt7mtHUgSKgzkrJHqV+PAH+TtZXAUE=
   enabled: true
 
 accountsDatabase: # database for account
@@ -152,12 +152,12 @@ accountDatabaseCrawler: # crawler for account database
 apn: # You can use these value if you don't need Apple Push Notification
   sandbox: true
   bundleId: com.klouddata.messagegchat
-  pushCertificate: config/apns_chat.cer
-  pushKey: config/apns_chat.key
+  pushCertificate: config/apns_chat_stage.cer
+  pushKey: config/apns_chat_stage.key
 
 unidentifiedDelivery:
-  certificate: CicIgd8xEiEFG5b/UcFkzslDnLqUyijLw0MkZJLq2+Sxsycfn12piSYSQDEtEgTqztgbUyBGondMFlitT94QMTAjjwJJH6Ygj5AH7ffYphTCbTjtloUW5InXRbDi47e4x9ZbvWHDRmdtcAg=
-  privateKey: wIEzPFvp7K+tRG2ZwjYtVWsVo+QUuioRCdXgOugCeVE=
+  certificate: CicIgd8xEiEF0go2/uTXuv/HSCEx+zM/WJHeBrZp2PJvs+qLDtJI+ysSQEKHmhVbOFDCTGuz1xaoCRqMCtBcyQNQJ2ysS6TLPKVxnv3mStVjh7jsVKdih/23yBkJ5CmJLw9pAU9TqAFWZYQ=
+  privateKey: iH1PmH0N0JLfaulxjzkt1X+kn2CKmU2ZouDmk44y5Vg=
   expiresDays: 365
 
 voiceVerification: # voice otp verification, afaik it use vox service
@@ -166,9 +166,9 @@ voiceVerification: # voice otp verification, afaik it use vox service
     - en
 
 pushScheduler: # redis server for push scheduler
-  url: redis://172.31.0.210:6379/pushScheduler # change to your redis server
+  url: redis://18.138.233.86:6379/pushScheduler # change to your redis server
   replicaUrls:
-    - redis://172.31.0.210:6379/pushSchedulerReplica # change to your redis server
+    - redis://18.138.233.86:6379/pushSchedulerReplica # change to your redis server
 
 server: # server configuration
   applicationConnectors:

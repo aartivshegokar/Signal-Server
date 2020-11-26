@@ -25,8 +25,8 @@ public class ZkParamsCommand extends Command {
     ServerSecretParams serverSecretParams = ServerSecretParams.generate();
     ServerPublicParams serverPublicParams = serverSecretParams.getPublicParams();
 
-    System.out.println("Public: " + Base64.encodeBytesWithoutPadding(serverPublicParams.serialize()));
-    System.out.println("Private: " + Base64.encodeBytesWithoutPadding(serverSecretParams.serialize()));
+    System.out.println("Public: " + Base64.encodeBytes(serverPublicParams.serialize()));
+    System.out.println("Private: " + Base64.encodeBytes(serverSecretParams.serialize()));
   }
 
 }
