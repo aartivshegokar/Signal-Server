@@ -17,13 +17,13 @@
 package org.whispersystems.textsecuregcm.configuration;
 
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import org.hibernate.validator.constraints.NotEmpty;
-import org.hibernate.validator.constraints.URL;
+import java.util.List;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class RedisConfiguration {
 
@@ -39,6 +39,10 @@ public class RedisConfiguration {
   @NotNull
   @Valid
   private CircuitBreakerConfiguration circuitBreaker = new CircuitBreakerConfiguration();
+  
+  @JsonProperty
+  private String password;
+
 
   public String getUrl() {
     return url;
@@ -51,4 +55,9 @@ public class RedisConfiguration {
   public CircuitBreakerConfiguration getCircuitBreakerConfiguration() {
     return circuitBreaker;
   }
+
+  public String getPassword() {
+	return password;
+  }
+  
 }
